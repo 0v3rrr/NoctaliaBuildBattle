@@ -1,6 +1,6 @@
 <?php
 
-namespace Elektro\MasterBuilders;
+namespace The0v3rD0z\BuildBattle;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
