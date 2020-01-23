@@ -1,6 +1,6 @@
 <?php
 
-namespace The0v3rD0z\BuildBattle;
+namespace BuildBattle;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -18,7 +18,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\Task;
 use pocketmine\utils\TextFormat;
 
-class Main extends PluginBase implements Listener
+class BuildBattle extends PluginBase implements Listener
 {
     public $bb = array();
     public function onEnable()
