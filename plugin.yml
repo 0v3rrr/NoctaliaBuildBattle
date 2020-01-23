@@ -1,5 +1,5 @@
 name: BuildBattle
 main: BuildBattle\Main
-api: [3.11.3]
-version: "0.1.0"
-auhtor: It s Test
+api: 3.11.3
+version: 0.1.0
+auhtor: The0v3rD0z
