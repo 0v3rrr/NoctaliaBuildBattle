@@ -1,8 +1,6 @@
 ---
 branches:
 -master
--dev
 projects:
-  BuildBattle:
-   path: ""
-...
+BuildBattle:
+path: ""
