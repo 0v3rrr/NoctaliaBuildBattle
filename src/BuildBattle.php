@@ -25,32 +25,32 @@ class Main extends PluginBase implements Listener
     {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->bb = array();
-        $this->bb[0] = 0; // ist es am starten       
-        $this->bb[1] = 0; // was gebaut wird
+        $this->bb[0] = 0;      
+        $this->bb[1] = 0;
         
-        $this->bb[2] = 0; // overall rating of 1 built
-        $this->bb[3] = 0; // overall rating of 2 built
-        $this->bb[4] = 0; // overall rating of 3 built
-        $this->bb[5] = 0; // overall rating of 4 built
-        $this->bb[6] = 0; // overall rating of 5 built
-        $this->bb[7] = 0; // overall rating of 6 built
-        $this->bb[8] = 0; // overall rating of 7 built
-        $this->bb[9] = 0; // overall rating of 8 built
-        $this->bb[10] = 0; // overall rating of 9 build
-        $this->bb[11] = 0; // overall rating of 10 built
+        $this->bb[2] = 0; 
+        $this->bb[3] = 0; 
+        $this->bb[4] = 0; 
+        $this->bb[5] = 0; 
+        $this->bb[6] = 0; 
+        $this->bb[7] = 0; 
+        $this->bb[8] = 0; 
+        $this->bb[9] = 0; 
+        $this->bb[10] = 0; 
+        $this->bb[11] = 0; 
         
-        $this->bb[12] = 0; // nickname builder 1 built
-        $this->bb[13] = 0; // nickname builder 2 built
-        $this->bb[14] = 0; // nickname builder 3 built
-        $this->bb[15] = 0; // nickname builder 4 built
-        $this->bb[16] = 0; // nickname builder 5 built
-        $this->bb[17] = 0; // nickname builder 6 built
-        $this->bb[18] = 0; // nickname builder 7 built      
-        $this->bb[19] = 0; // nickname builder 8 built   
-        $this->bb[20] = 0; // nickname builder 9 built
-        $this->bb[21] = 0; // nickname builder 10 built
+        $this->bb[12] = 0; // Pseudo builder 1 build
+        $this->bb[13] = 0; // Pseudo builder 2 build
+        $this->bb[14] = 0; // Pseudo builder 3 build
+        $this->bb[15] = 0; // Pseudo builder 4 build
+        $this->bb[16] = 0; // Pseudo builder 5 build
+        $this->bb[17] = 0; // Pseudo builder 6 build
+        $this->bb[18] = 0; // Pseudo builder 7 build      
+        $this->bb[19] = 0; // Pseudo builder 8 build 
+        $this->bb[20] = 0; // Pseudo builder 9 build
+        $this->bb[21] = 0; // Pseudo builder 10 build
         
-        $this->bb[22] = 0; // in which arena are the players
+        $this->bb[22] = 0; //
         
         $this->getScheduler()->scheduleRepeatingTask(new Task(array($this, "Popup")), 10);
         if (!file_exists($this->getDataFolder() . "config.yml")) {
@@ -61,18 +61,18 @@ class Main extends PluginBase implements Listener
     public function PlayerJoinEvent(PlayerJoinEvent $event){
         $p = $event->getPlayer();
         if((int)$this->bb[0] != 0){
-            $p->close("", TextFormat::RED."The game has already begun!");
+            $p->close("", TextFormat::RED."La game a commencé");
             return false;
         }
         $p->setNameTagVisible(false);
         $p->setGamemode(0);
         $p->teleport(new Position($this->getConfig()->get("Spawn")));
         if(count($this->getServer()->getOnlinePlayers()) >= 10){
-            $this->getServer()->broadcastMessage(TextFormat::RED."Startet in weniger als 10 Sekunden!");
+            $this->getServer()->broadcastMessage(TextFormat::RED."Debut dans 10 secondes!");
             $this->getServer()->getScheduler()->scheduleDelayedTask(new CallbackTask([$this, "Start"]), 10 * 20 );
         } else {
-            $p->sendMessage(TextFormat::GOLD.'Du bist der BuildBattle-Formation beigetreten.');
-            $p->sendMessage(TextFormat::GOLD.'Sobald die Anzahl der Spieler 10 erreicht hat, beginnt das Spiel.');
+            $p->sendMessage(TextFormat::GOLD."Vous avez rejoint la partie");
+            $p->sendMessage(TextFormat::GOLD."En attente de joueurs: 10");
         }
     }
     public function PlayerQuitEvent(PlayerQuitEvent $event){
@@ -80,9 +80,9 @@ class Main extends PluginBase implements Listener
     }
     public function Start(){
         if(count($this->getServer()->getOnlinePlayers()) >= 10){
-            $this->getServer()->broadcastMessage(TextFormat::RED."Der Spielstart wurde abgesagt. Jemand hat den Server verlassen.");
+            $this->getServer()->broadcastMessage(TextFormat::RED."Match annulé quelqu un a quitté.");
         } else {
-            $this->getServer()->broadcastMessage(TextFormat::RED."Das Spiel hat begonnen!");
+            $this->getServer()->broadcastMessage(TextFormat::RED."La partie commence");
             $online = $this->getServer()->getOnlinePlayers();
             $online[0]->teleport(new Position($this->getConfig()->get("1")));
             $online[1]->teleport(new Position($this->getConfig()->get("2")));
