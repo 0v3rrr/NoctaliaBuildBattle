@@ -1,9 +1,0 @@
-name: BuildBattle
-main: BuildBattle
-api: [3.11.3]
-version: 1.0.0
-auhtor: The0v3rD0z
-commands:
-   bb:
-     description: In dev
-     permission: bb.command
