@@ -1,5 +1,9 @@
 name: BuildBattle
 main: BuildBattle\BuildBattle
-api: ["3.11.3"]
+api: [3.11.3]
 version: 0.1.0
 auhtor: The0v3rD0z
+commands:
+   bb:
+     description: In dev
+     permission: bb.command
