@@ -1,7 +1,7 @@
 name: BuildBattle
-main: BuildBattle\BuildBattle
+main: BuildBattle
 api: [3.11.3]
-version: 0.1.0
+version: 1.0.0
 auhtor: The0v3rD0z
 commands:
    bb:
